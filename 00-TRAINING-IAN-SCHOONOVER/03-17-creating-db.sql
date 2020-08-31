@@ -1,0 +1,2 @@
+CREATE DATABASE hello_world_db;
+SHOW DATABASES;
