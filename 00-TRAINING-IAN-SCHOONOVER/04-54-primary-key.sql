@@ -34,4 +34,4 @@ INSERT INTO unique_cats2(name, age) VALUES('Jiff', 3);
 INSERT INTO unique_cats2(name, age) VALUES('Skippy', 4);
 
 -- Notice the difference:
-SELECT * FROM unique_cats2; 
+SELECT * FROM unique_cats2;
