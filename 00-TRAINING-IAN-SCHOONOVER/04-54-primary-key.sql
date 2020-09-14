@@ -1,37 +1,24 @@
--- CODE: Primary Keys
-
--- Define a table with a PRIMARY KEY constraint:
-CREATE TABLE unique_cats
-(
-    cat_id INT NOT NULL,
-    name VARCHAR(100),
-    age INT,
-    PRIMARY KEY (cat_id)
-);
-DESC unique_cats; 
-
--- Insert some new cats:
-INSERT INTO unique_cats(cat_id, name, age) VALUES(1, 'Fred', 23);
-INSERT INTO unique_cats(cat_id, name, age) VALUES(2, 'Louise', 3);
-INSERT INTO unique_cats(cat_id, name, age) VALUES(1, 'James', 3);
-
--- Notice what happens:
-SELECT * FROM unique_cats; 
-
--- Adding in AUTO_INCREMENT:
-CREATE TABLE unique_cats2 (
-    cat_id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(100),
-    age INT,
-    PRIMARY KEY (cat_id)
+-- Defining The employees table:
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT NOT NULL,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    middle_name VARCHAR(255),
+    age INT NOT NULL,
+    current_status VARCHAR(255) NOT NULL DEFAULT 'employed',
+    PRIMARY KEY(id)
 );
 
--- INSERT a couple new cats:
-INSERT INTO unique_cats2(name, age) VALUES('Skippy', 4);
-INSERT INTO unique_cats2(name, age) VALUES('Jiff', 3);
-INSERT INTO unique_cats2(name, age) VALUES('Jiff', 3);
-INSERT INTO unique_cats2(name, age) VALUES('Jiff', 3);
-INSERT INTO unique_cats2(name, age) VALUES('Skippy', 4);
+-- Another way of defining a primary key:
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    middle_name VARCHAR(255),
+    age INT NOT NULL,
+    current_status VARCHAR(255) NOT NULL DEFAULT 'employed'
+);
 
--- Notice the difference:
-SELECT * FROM unique_cats2;
+-- A test INSERT:
+INSERT INTO employees(first_name, last_name, age) VALUES
+('Dora', 'Smith', 58);

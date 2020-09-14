@@ -1,14 +1,24 @@
-USE db_application;
+-- Defining The employees table:
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT NOT NULL,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    middle_name VARCHAR(255),
+    age INT NOT NULL,
+    current_status VARCHAR(255) NOT NULL DEFAULT 'employed',
+    PRIMARY KEY(id)
+);
 
-CREATE TABLE t_employees
-(
-	id INT(10) NOT NULL AUTO_INCREMENT,
-    lastname VARCHAR(50) NOT NULL,
-    firstname VARCHAR(50) NOT NULL,
-    middlename VARCHAR(50),
-    age TINYINT(3) UNSIGNED NOT NULL,
-    current_status VARCHAR(50) NOT NULL DEFAULT (`employed`)
-)
-ENGINE = InnoDB,
-CHARSET = utf8mb4,
-COLLATE = utf8_general_ci;
+-- Another way of defining a primary key:
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    middle_name VARCHAR(255),
+    age INT NOT NULL,
+    current_status VARCHAR(255) NOT NULL DEFAULT 'employed'
+);
+
+-- A test INSERT:
+INSERT INTO employees(first_name, last_name, age) VALUES
+('Dora', 'Smith', 58);
